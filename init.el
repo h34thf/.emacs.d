@@ -1,4 +1,3 @@
-;test
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
@@ -106,3 +105,33 @@
      (360 . "#b9ca4a")))
  '(vc-annotate-very-old-color nil)
  '(window-divider-mode nil))
+
+                                        
+; 3rd-party stuff I'm trying.  Comments are from 3rd party.
+; Source http below:
+; https://github.com/patrickt/emacs/tree/ae824f688767358683089bdfe8a268ca0b0267c8
+(setq-default indent-tabs-mode nil)
+
+;It’s good that Emacs supports the wide variety of file encodings it does, but UTF-8 should always, always be the default.
+
+(set-charset-priority 'unicode)
+(prefer-coding-system 'utf-8-unix)
+
+;We also need to turn on a few modes to have behavior that’s even remotely modern.
+
+(delete-selection-mode t)
+(global-display-line-numbers-mode t)
+(column-number-mode)
+
+;Emacs 27 comes with fast current-line highlight functionality, but it can produce some visual feedback in vterm buffers, so we only activate it in programming or text modes.
+
+(require 'hl-line)
+(add-hook 'prog-mode-hook #'hl-line-mode)
+(add-hook 'text-mode-hook #'hl-line-mode)
+
+;Emacs is super fond of littering filesystems with backups and autosaves, since it was built with the assumption that multiple users could be using the same Emacs instance on the same filesystem. This was valid in 1980. It is no longer the case.
+
+(setq
+ make-backup-files nil
+ auto-save-default nil
+ create-lockfiles nil)
