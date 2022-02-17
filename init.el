@@ -38,8 +38,8 @@
 (setq org-startup-indented t)
 ;(setq org-startup-truncated nil) 
 (require 'org-agenda)
-(define-key org-agenda-mode-map "j" 'org-agenda-next-item)
-(define-key org-agenda-mode-map "k" 'org-agenda-previous-item)
+(define-key org-agenda-mode-map (kbd "j") 'org-agenda-next-item)
+(define-key org-agenda-mode-map (kbd "k") 'org-agenda-previous-item)
 (setq org-agenda-files '("C:\\Users\\fie74818\\Documents\\orgmode\\work.org"))
 (add-hook 'org-mode-hook #'(lambda ()
 
@@ -74,18 +74,21 @@
  '(ansi-color-names-vector
    (vector "#000000" "#d54e53" "#b9ca4a" "#e7c547" "#7aa6da" "#c397d8" "#70c0b1" "#eaeaea"))
  '(beacon-color "#d54e53")
- '(custom-enabled-themes '(sanityinc-tomorrow-night))
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
  '(custom-safe-themes
-   '("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default))
+   (quote
+    ("8b9d07b01f2a9566969c2049faf982cab6a4b483dd43de7fd6a016bb861f7762" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
  '(fci-rule-color "#424242")
- '(flycheck-color-mode-line-face-to-color 'mode-line-buffer-id)
- '(frame-background-mode 'dark)
+ '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
+ '(frame-background-mode (quote dark))
  '(package-selected-packages
-   '(color-theme-sanityinc-tomorrow evil-leader color-theme-sanityinc-tomorrow-day org-bullets evil))
+   (quote
+    (color-theme-sanityinc-tomorrow evil-leader color-theme-sanityinc-tomorrow-day org-bullets evil)))
  '(show-paren-mode t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
-   '((20 . "#d54e53")
+   (quote
+    ((20 . "#d54e53")
      (40 . "#e78c45")
      (60 . "#e7c547")
      (80 . "#b9ca4a")
@@ -102,7 +105,7 @@
      (300 . "#d54e53")
      (320 . "#e78c45")
      (340 . "#e7c547")
-     (360 . "#b9ca4a")))
+     (360 . "#b9ca4a"))))
  '(vc-annotate-very-old-color nil)
  '(window-divider-mode nil))
 
