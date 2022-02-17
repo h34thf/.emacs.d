@@ -1,3 +1,8 @@
+
+
+
+
+
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
@@ -37,8 +42,12 @@
 
 (require 'undo-tree)
 (global-undo-tree-mode)
-(define-key evil-normal-state-map (kbd "u") 'undo-tree-undo)
-(define-key evil-normal-state-map (kbd "C-r") 'undo-tree-redo)
+(evil-set-undo-system 'undo-tree)
+
+;instead of 'evil-set-undo-system 'undo-tree, the next 3 lines also worked:
+;(setq evil-undo-system 'undo-tree)
+;(define-key evil-normal-state-map (kbd "u") 'undo-tree-undo)
+;(define-key evil-normal-state-map (kbd "C-r") 'undo-tree-redo)
 
 (setq org-startup-indented t)
 ;(setq org-startup-truncated nil) 
