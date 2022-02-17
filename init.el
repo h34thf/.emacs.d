@@ -13,9 +13,6 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-(require 'undo-tree)
-(global-undo-tree-mode)
-
 (require 'evil)
 (evil-mode t)
 (require 'evil-leader)
@@ -37,6 +34,11 @@
  "L" 'org-demote-subtree
  "d" 'org-time-stamp
  "t" 'org-todo)
+
+(require 'undo-tree)
+(global-undo-tree-mode)
+(define-key evil-normal-state-map (kbd "u") 'undo-tree-undo)
+(define-key evil-normal-state-map (kbd "C-r") 'undo-tree-redo)
 
 (setq org-startup-indented t)
 ;(setq org-startup-truncated nil) 
