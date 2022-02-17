@@ -13,6 +13,9 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+(require 'undo-tree)
+(global-undo-tree-mode)
+
 (require 'evil)
 (evil-mode t)
 (require 'evil-leader)
@@ -83,7 +86,7 @@
  '(frame-background-mode (quote dark))
  '(package-selected-packages
    (quote
-    (color-theme-sanityinc-tomorrow evil-leader color-theme-sanityinc-tomorrow-day org-bullets evil)))
+    (undo-tree color-theme-sanityinc-tomorrow evil-leader color-theme-sanityinc-tomorrow-day org-bullets evil)))
  '(show-paren-mode t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
